@@ -1,21 +1,18 @@
 <template>
-  <router-link to="/">
-    <div class="col-lg-10 offset-1">
-      <img
-        class="mb-4 w-100"
-        :src="require(`@/assets/img/${items[5].image}`)"
-        :alt="items[5].image"
-      />
-      <h2>{{ items[5].title }}</h2>
-      <div class="description">
-        {{ items[5].description }}
-      </div>
-    </div>
-  </router-link>
+  <content-card
+    :image="items[5].image"
+    :title="items[5].title"
+    :description="items[5].description"
+  ></content-card>
 </template>
 
 <script>
+import ContentCard from "@/components/ContentCard.vue";
+
 export default {
+  components: {
+    ContentCard,
+  },
   computed: {
     items() {
       return this.$store.getters["getItems"];
